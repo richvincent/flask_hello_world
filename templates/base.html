@@ -1,0 +1,40 @@
+{% from "macros.html" import nav_link with context %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Hello World | Revisited</title>
+		<<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+			div#main {
+				max-width: 500px;
+				padding: 20px;
+			}
+
+			nav.title {
+				font-weight: bold;
+			}
+
+			a.active {
+				font-weight: bold;
+			}
+		</style>
+	<head>
+	<body>
+		<nav>
+			<span class="title">Hello World | Revisited</span>
+		</nav>
+		
+		<div id="main">
+			<h2>This is the base template for Flask Hello World Flask & Jinja template.</h2>
+			<br>
+			{% block content %}
+			{% endblock %}
+			<br>
+		</div>
+		<footer>
+			{% block footer %}
+				Base footer from from base template
+			{% endblock %}
+		</footer>
+	</body>
+</html>

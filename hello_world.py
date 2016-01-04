@@ -1,4 +1,5 @@
-from flask import Flask
+from flask import Flask, render_template
+import datetime
 from os import environ
 
 app = Flask(__name__)
@@ -12,32 +13,17 @@ def say_hi():
 
 @app.route("/hello/<name>")
 def hi_person(name):
-    html = """
-        <h1>
-            Hello {}!
-        </h1>
-        <p>
-            Here's a picture of a kitten. Awww...
-        </p>
-        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=150">
-    """
-    return html.format(name.title())
+    return render_template('template.html', my_string="Hello Mode",
+                           my_data=name,
+                           current_time=datetime.datetime.now())
 
 
 @app.route("/jedi/<firstName>/<lastName>")
 def jedi_name(firstName, lastName):
-    #
     jediName = lastName[0:3] + firstName[0:2]
-    html = """
-        <h1>
-            Hello {}!
-        </h1>
-        <p>
-            Here's a picture of a kitten. Awww...
-        </p>
-        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=150">
-    """
-    return html.format(jediName.title())
+    return render_template('template.html', my_string="Jedi Identity",
+                           my_data=jediName,
+                           current_time=datetime.datetime.now())
 
 
 if __name__ == "__main__":

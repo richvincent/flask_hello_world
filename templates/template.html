@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h3> Hello World Revisited Jinja Remix</h3>
+	<br>
+	<p>Application Mode: {{my_string}}</p>
+	<p>Application Data: {{my_data}}</p>
+	<p>
+	<img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=150">
+	</p>
+{% endblock %}
+{% block footer %}
+{{super()}}
+... Test
+{% endblock %}
